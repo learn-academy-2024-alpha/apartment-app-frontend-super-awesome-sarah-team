@@ -6,6 +6,15 @@
   font-size: 16pt;
   font-style: normal;
 }
+.center-content {
+  text-align: center;
+}
+.title-header {
+  padding: 0.5rem;
+}
+.page-height {
+  height: 80vh;
+}
 
 /* ---BUTTON--- */
 .nav-button {
@@ -53,4 +62,14 @@ footer {
 .nav-link-group {
   display: flex;
   align-items: center;
+}
+
+/* ---HOME--- */
+.home-apartment-image {
+  width: 100vw;
+}
+
+/* ---NOT FOUND--- */
+.not-found-key-image {
+  height: 10rem;
 }
