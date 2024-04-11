@@ -96,3 +96,17 @@ footer {
 .not-found-key-image {
   height: 10rem;
 }
+
+/* ---SHOW--- */
+.show-apartment {
+  display: flex;
+}
+.show-apartment-image {
+  width: 50vw;
+}
+.apartment-details {
+  margin: 2rem;
+}
+.icon {
+  padding: 0 10px;
+}

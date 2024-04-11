@@ -4,6 +4,7 @@ import "./App.css"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import ApartmentIndex from "./pages/ApartmentIndex.js"
+import ApartmentShow from "./pages/ApartmentShow.js"
 import Home from "./pages/Home.js"
 import NotFound from "./pages/NotFound.js"
 
@@ -22,6 +23,10 @@ const App = () => {
         <Route
           path="/apartments"
           element={<ApartmentIndex apartments={apartments} />}
+        />
+        <Route
+          path="/apartment/:id"
+          element={<ApartmentShow apartments={apartments} />}
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
