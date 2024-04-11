@@ -30,8 +30,9 @@ Execute the testing suite by running `yarn test`
 
 - The app was created with this command:
   - `yarn create react-app apartment-app-frontend`
-- Reactstrap
-- React-router-dom
+- [Reactstrap](https://reactstrap.github.io/?path=/docs/components-card--card)
+- [React-router-dom](https://reactrouter.com/en/main)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
 ### 💄 Styling Documentation
 
