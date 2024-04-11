@@ -6,7 +6,7 @@ const NotFound = () => {
   return (
     <div className="center-content page-height">
       <h2 className="title-header">Oops, Wrong Address!</h2>
-      <NavButton url="/" buttonContent="Back to Listings" />
+      <NavButton url="/apartments" buttonContent="Back to Listings" />
       <div>
         <img
           src={key}

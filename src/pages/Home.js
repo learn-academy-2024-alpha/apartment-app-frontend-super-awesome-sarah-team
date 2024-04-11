@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="center-content">
       <h1 className="title-header">Home Sweet Home.</h1>
-      <NavButton url="/" buttonContent="See Listings" />
+      <NavButton url="/apartments" buttonContent="See Listings" />
       <img
         src={apartments}
         alt="tiled pattern of blue windows on a tan building"

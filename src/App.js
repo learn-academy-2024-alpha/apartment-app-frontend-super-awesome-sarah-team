@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import "./App.css"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
+import ApartmentIndex from "./pages/ApartmentIndex.js"
 import Home from "./pages/Home.js"
 import NotFound from "./pages/NotFound.js"
 
@@ -18,6 +19,10 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route
+          path="/apartments"
+          element={<ApartmentIndex apartments={apartments} />}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
