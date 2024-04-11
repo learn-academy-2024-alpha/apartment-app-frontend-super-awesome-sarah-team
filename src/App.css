@@ -6,3 +6,51 @@
   font-size: 16pt;
   font-style: normal;
 }
+
+/* ---BUTTON--- */
+.nav-button {
+  background-color: #696049;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 25px;
+  font-size: large;
+  margin: 0.5rem;
+}
+
+/* ---FOOTER--- */
+footer {
+  background-color: white;
+  padding: 0.5rem;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-logo {
+  height: 3rem;
+}
+.footer-text {
+  margin: 0;
+}
+
+/* ---HEADER--- */
+.apartment-logo {
+  height: 5rem;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fbfbfb;
+  padding: 0.5rem;
+}
+.nav-link {
+  padding: 1rem !important;
+}
+.nav-link:hover {
+  color: #696049 !important;
+}
+.nav-link-group {
+  display: flex;
+  align-items: center;
+}
