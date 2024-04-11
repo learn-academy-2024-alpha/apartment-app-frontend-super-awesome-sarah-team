@@ -33,6 +33,7 @@ Execute the testing suite by running `yarn test`
 - [Reactstrap](https://reactstrap.github.io/?path=/docs/components-card--card)
 - [React-router-dom](https://reactrouter.com/en/main)
 - [React Icons](https://react-icons.github.io/react-icons/)
+- [React Hook Form](https://react-hook-form.com/get-started)
 
 ### 💄 Styling Documentation
 
