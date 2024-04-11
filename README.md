@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Apartment App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+April 2024
 
-## Available Scripts
+Apartment App is a decoupled React and Rails API. It is built with a PostgreSQL database featuring user authentication and authorization using Devise and JWT.
 
-In the project directory, you can run:
+### 📚 Overall Story
 
-### `yarn start`
+Apartment App lists apartments available for rent. A visiting user of the application can see a list of all available apartments. A visiting user can select an apartment listing and see more information about that apartment. In order to list an apartment for rent, a user can create an account and log into the application. When logged in, a user can add an apartment to the list. Logged in users can see a list of all their apartments with the ability to edit or delete their listings.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 💻 Versions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React 18.2.0
+- Node 21.5.0
 
-### `yarn test`
+### ⚡️ Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Clone the repository
+- Install dependencies by running `yarn`
 
-### `yarn build`
+### 🏁 Start the App
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Start the server by running `yarn start`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🚗 Testing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Execute the testing suite by running `yarn test`
 
-### `yarn eject`
+### 🔗 Historical Commands and Dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- The app was created with this command:
+  - `yarn create react-app apartment-app-frontend`
+- Reactstrap
+- React-router-dom
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 💄 Styling Documentation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Google font: "Poppins", sans-serif
