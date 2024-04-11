@@ -110,3 +110,23 @@ footer {
 .icon {
   padding: 0 10px;
 }
+
+/* ---SIGN IN--- */
+.sign-in-form {
+  width: 50vw;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .sign-in-form {
+    width: 70vw;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 675px) {
+  .sign-in-form {
+    width: 90vw;
+    margin: 0 auto;
+  }
+}

@@ -9,11 +9,41 @@ import Home from "./pages/Home.js"
 import NotFound from "./pages/NotFound.js"
 
 import mockApartments from "./mockApartments.js"
-import mockUsers from "./mockUsers.js"
+import SignIn from "./pages/SignIn.js"
 
 const App = () => {
   const [apartments, setApartments] = useState(mockApartments)
-  const [user, setUser] = useState(mockUsers[0])
+  const [user, setUser] = useState(null)
+  console.log(user)
+
+  const signIn = async (user) => {
+    // send an external request in a try block
+    try {
+      // fetch data
+      const signInResponse = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(user)
+      })
+      // handle error from fetch
+      if (!signInResponse.ok) {
+        throw new Error(signInResponse.errors)
+      }
+      // await arrival of payload
+      const payload = await signInResponse.json()
+      // set token into browser storage
+      localStorage.setItem("token", signInResponse.headers.get("Authorization"))
+      localStorage.setItem("user", JSON.stringify(payload))
+      // set user
+      setUser(payload)
+      // handle failure of promise to resolve
+    } catch (error) {
+      console.error("Error fetching data:", error.message)
+    }
+  }
 
   return (
     <>
@@ -28,6 +58,7 @@ const App = () => {
           path="/apartment/:id"
           element={<ApartmentShow apartments={apartments} />}
         />
+        <Route path="/signin" element={<SignIn signIn={signIn} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
