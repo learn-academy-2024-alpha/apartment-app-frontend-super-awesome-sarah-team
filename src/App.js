@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
+import ApartmentEdit from "./pages/ApartmentEdit.js"
 import ApartmentIndex from "./pages/ApartmentIndex"
 import ApartmentShow from "./pages/ApartmentShow"
 import Home from "./pages/Home"
@@ -86,6 +87,10 @@ const App = () => {
       console.error("Error fetching user sign out request")
     }
   }
+  const updateApartment = async (apartment, id) => {
+    console.log(apartment)
+    console.log(id)
+  }
 
   return (
     <>
@@ -104,6 +109,18 @@ const App = () => {
           <Route
             path="/my-apartments"
             element={<MyApartments apartments={apartments} user={user} />}
+          />
+        )}
+        {user && (
+          <Route
+            path="/apartment-edit/:id"
+            element={
+              <ApartmentEdit
+                apartments={apartments}
+                updateApartment={updateApartment}
+                user={user}
+              />
+            }
           />
         )}
         <Route path="/signin" element={<SignIn signIn={signIn} />} />
