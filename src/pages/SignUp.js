@@ -1,3 +1,4 @@
+import NavButton from "../components/NavButton"
 import { useForm } from "react-hook-form"
 import { Form, FormGroup, Label } from "reactstrap"
 import { useNavigate } from "react-router-dom"
@@ -58,7 +59,7 @@ const SignUp = ({ signUp }) => {
             className="form-control"
             {...register("password_confirmation", { required: true })}
           />
-          {errors.confirmation && (
+          {errors.password_confirmation && (
             <span className="form-validations">
               Password confirmation is required
             </span>
@@ -66,8 +67,9 @@ const SignUp = ({ signUp }) => {
         </FormGroup>
         <div className="center-content">
           <button onClick={handleSubmit} className="nav-button">
-            Submit
+            Create Account
           </button>
+          <NavButton url="/signin" buttonContent="Already a User?" />
         </div>
       </Form>
     </div>
