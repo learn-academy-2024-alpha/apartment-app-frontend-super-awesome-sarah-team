@@ -4,6 +4,7 @@ import Footer from "./components/Footer"
 import Header from "./components/Header"
 import ApartmentEdit from "./pages/ApartmentEdit.js"
 import ApartmentIndex from "./pages/ApartmentIndex"
+import ApartmentNew from "./pages/ApartmentNew.js"
 import ApartmentShow from "./pages/ApartmentShow"
 import Home from "./pages/Home"
 import MyApartments from "./pages/MyApartments"
@@ -87,6 +88,9 @@ const App = () => {
       console.error("Error fetching user sign out request")
     }
   }
+  const createApartment = async (apartment) => {
+    console.log(apartment)
+  }
   const updateApartment = async (apartment, id) => {
     console.log(apartment)
     console.log(id)
@@ -109,6 +113,14 @@ const App = () => {
           <Route
             path="/my-apartments"
             element={<MyApartments apartments={apartments} user={user} />}
+          />
+        )}
+        {user && (
+          <Route
+            path="/apartment-new"
+            element={
+              <ApartmentNew createApartment={createApartment} user={user} />
+            }
           />
         )}
         {user && (
