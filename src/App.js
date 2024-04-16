@@ -100,9 +100,14 @@ const App = () => {
           path="/apartment/:id"
           element={<ApartmentShow apartments={apartments} />}
         />
-        <Route path="/my-apartments" element={<MyApartments />} />
+        {user && (
+          <Route
+            path="/my-apartments"
+            element={<MyApartments apartments={apartments} user={user} />}
+          />
+        )}
         <Route path="/signin" element={<SignIn signIn={signIn} />} />
-        <Route path="/signup" element={<SignUp signIn={signIn} />} />
+        <Route path="/signup" element={<SignUp signUp={signUp} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
