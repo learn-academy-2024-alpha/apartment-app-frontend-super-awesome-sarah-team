@@ -4,11 +4,15 @@ import { useNavigate } from "react-router-dom"
 
 const SignIn = ({ signIn }) => {
   const navigate = useNavigate()
+  const preloadedValues = {
+    email: "test1@example.com",
+    password: "password"
+  }
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm()
+  } = useForm({ defaultValues: preloadedValues })
 
   const onSubmit = (formData) => {
     signIn({ user: formData })
@@ -18,7 +22,7 @@ const SignIn = ({ signIn }) => {
   return (
     <div className="page-body page-height">
       <h3 className="title-header center-content">Sign In</h3>
-      <Form onSubmit={handleSubmit(onSubmit)} className="sign-in-form">
+      <Form onSubmit={handleSubmit(onSubmit)} className="auth-form">
         <FormGroup>
           <Label for="email">Enter Your Email</Label>
           <input
