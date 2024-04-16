@@ -95,6 +95,9 @@ const App = () => {
     console.log(apartment)
     console.log(id)
   }
+  const deleteApartment = async (id) => {
+    console.log(id)
+  }
 
   return (
     <>
@@ -112,7 +115,13 @@ const App = () => {
         {user && (
           <Route
             path="/my-apartments"
-            element={<MyApartments apartments={apartments} user={user} />}
+            element={
+              <MyApartments
+                apartments={apartments}
+                deleteApartment={deleteApartment}
+                user={user}
+              />
+            }
           />
         )}
         {user && (
