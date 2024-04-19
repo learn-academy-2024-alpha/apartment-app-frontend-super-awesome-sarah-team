@@ -24,18 +24,20 @@ const Header = ({ signOut, user }) => {
         <NavLink to="/apartments" className="nav-link">
           Available Apartments
         </NavLink>
-        {user && (
+        {user && user !== "invalid" && (
           <NavLink to="/my-apartments" className="nav-link">
             My Apartments
           </NavLink>
         )}
-        {!user && (
+        {(!user || user === "invalid") && (
           <NavLink to="/signin" className="nav-link">
             Sign In
           </NavLink>
         )}
-        {!user && <NavButton url="/signup" buttonContent="Sign Up" />}
-        {user && (
+        {(!user || user === "invalid") && (
+          <NavButton url="/signup" buttonContent="Sign Up" />
+        )}
+        {user && user !== "invalid" && (
           <button className="nav-button" onClick={handleSignOut}>
             Sign Out
           </button>

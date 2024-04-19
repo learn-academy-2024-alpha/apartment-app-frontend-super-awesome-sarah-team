@@ -1,9 +1,7 @@
 import { useForm } from "react-hook-form"
 import { Form, FormGroup, Label } from "reactstrap"
-import { useNavigate } from "react-router-dom"
 
-const SignIn = ({ signIn }) => {
-  const navigate = useNavigate()
+const SignIn = ({ signIn, user }) => {
   const preloadedValues = {
     email: "test1@example.com",
     password: "password"
@@ -16,7 +14,6 @@ const SignIn = ({ signIn }) => {
 
   const onSubmit = (formData) => {
     signIn({ user: formData })
-    navigate("/")
   }
 
   return (
@@ -51,6 +48,11 @@ const SignIn = ({ signIn }) => {
             <span className="form-validations">Password is required</span>
           )}
         </FormGroup>
+        {user === "invalid" && (
+          <div>
+            <span className="form-validations">Invalid user, try again</span>
+          </div>
+        )}
         <div className="center-content">
           <button onClick={handleSubmit} className="nav-button">
             Submit
