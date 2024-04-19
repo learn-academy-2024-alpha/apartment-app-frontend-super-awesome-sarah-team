@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import ApartmentEdit from "./pages/ApartmentEdit.js"
@@ -16,14 +16,17 @@ import "./App.css"
 import mockApartments from "./mockApartments.js"
 
 const App = () => {
+  const navigate = useNavigate()
   const [apartments, setApartments] = useState(mockApartments)
   const [user, setUser] = useState(null)
+  console.log(user)
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user")
     if (loggedInUser) {
       setUser(JSON.parse(loggedInUser))
     }
+    getApartments()
   }, [])
 
   const signIn = async (user) => {
@@ -40,9 +43,18 @@ const App = () => {
         throw new Error(signInResponse.errors)
       }
       const payload = await signInResponse.json()
-      localStorage.setItem("token", signInResponse.headers.get("Authorization"))
-      localStorage.setItem("user", JSON.stringify(payload))
-      setUser(payload)
+      if (payload.error === "Invalid Email or password.") {
+        setUser("invalid")
+        navigate("/signin")
+      } else {
+        localStorage.setItem(
+          "token",
+          signInResponse.headers.get("Authorization")
+        )
+        localStorage.setItem("user", JSON.stringify(payload))
+        setUser(payload)
+        navigate("/")
+      }
     } catch (error) {
       console.error("Error fetching user sign in request")
     }
@@ -88,15 +100,72 @@ const App = () => {
       console.error("Error fetching user sign out request")
     }
   }
+  const getApartments = async () => {
+    try {
+      const getResponse = await fetch("http://localhost:3000/apartments")
+      if (!getResponse.ok) {
+        throw new Error(getResponse.errors)
+      }
+      const getResult = await getResponse.json()
+      setApartments(getResult)
+    } catch (error) {
+      console.error("Error fetching apartment get request")
+    }
+  }
   const createApartment = async (apartment) => {
-    console.log(apartment)
+    try {
+      const postResponse = await fetch("http://localhost:3000/apartments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(apartment)
+      })
+      if (!postResponse.ok) {
+        throw new Error(postResponse.errors)
+      }
+      await postResponse.json()
+      getApartments()
+    } catch (error) {
+      console.error("Error fetching post data")
+    }
   }
   const updateApartment = async (apartment, id) => {
-    console.log(apartment)
-    console.log(id)
+    try {
+      const editResponse = await fetch(
+        `http://localhost:3000/apartments/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(apartment)
+        }
+      )
+      if (!editResponse.ok) {
+        throw new Error(editResponse.errors)
+      }
+      await editResponse.json()
+      getApartments()
+    } catch (error) {
+      console.error("Error fetching apartment update request")
+    }
   }
   const deleteApartment = async (id) => {
-    console.log(id)
+    try {
+      const deleteResponse = await fetch(
+        `http://localhost:3000/apartments/${id}`,
+        {
+          method: "DELETE"
+        }
+      )
+      if (!deleteResponse.ok) {
+        throw new Error(deleteResponse.errors)
+      }
+      getApartments()
+    } catch (error) {
+      console.error("Error fetching apartment delete request")
+    }
   }
 
   return (
@@ -144,7 +213,10 @@ const App = () => {
             }
           />
         )}
-        <Route path="/signin" element={<SignIn signIn={signIn} />} />
+        <Route
+          path="/signin"
+          element={<SignIn signIn={signIn} user={user} />}
+        />
         <Route path="/signup" element={<SignUp signUp={signUp} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
